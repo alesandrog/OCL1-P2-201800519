@@ -1,4 +1,4 @@
-/**/body{
+body{
     background-color: #282A36;
 }
 
@@ -29,10 +29,10 @@ a{
 }
 
 #editor{
-    margin-top: 9%;
+    margin-top: 10%;
     margin-left: 7%;
     position: absolute;
-    width: 40%;
+    width: 90%;
     height: 250px;
     border-width: 5px;
     border: 4px solid #F73471;
@@ -42,8 +42,8 @@ a{
 
 #cs{
     position: absolute;
-    margin-top: 3em;
-    margin-left: 20%;
+    margin-top: 0;
+    margin-left: 45%;
     background-color: #282A36;
     border: none;
 }
@@ -77,14 +77,30 @@ a{
     background-color: #282A36;
     border: 4px solid #F73471;
     border-radius: 5px;
-    transition: transform 1s;
-
+    overflow :scroll;
+/*    transition: transform 1s;*/
 }
 
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 30px;
+    background: #282A36;
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25) , inset -2px -2px -2px rgba(0, 0, 0, 0.25);
+}
+::-webkit-scrollbar-track{
+  background: #282A36;
+}
+
+
+/*
 #editor-python:hover{
     transform: scale(1.1 , 1);
-}
 
+}
+*/
 #py{
     display: block;
     margin-left: 40%;
@@ -94,6 +110,7 @@ a{
     border: none;
     transition: all .5s ease-in-out;
     cursor: pointer;
+
   
 }
 
@@ -157,13 +174,15 @@ a{
     background-color: #282A36;
     border: 4px solid #F73471;
     border-radius: 5px;
-    transition: transform 1s;
+/*    transition: transform 1s;*/
+    overflow :scroll;
+
 
 }
-
+/*
 #editor-html:hover{
     transform: scale(1.1 , 1);
-}
+}*/
 #html{
     display: block;
     margin-left: 40%;
@@ -203,13 +222,16 @@ a{
     background-color: #282A36;
     border: 4px solid #F73471;
     border-radius: 5px;
-    transition: transform 1s;
-
+/*    transition: transform 1s;*/
+    overflow :scroll;
 }
 
+
+
+/*
 #editor-json:hover{
     transform: scale(1.1 , 1);
-}
+}*/
 #json{
     display: block;
     margin-left: 40%;
@@ -299,6 +321,7 @@ button:hover {
 #slide-tablas .carousel-control-next{
     align-items: flex-start;
     margin-top: 5%;
+    width: 5%;
 }
 
 
@@ -319,8 +342,26 @@ button:hover {
     background-color: #282A36;
     border: 4px solid #F73471;
     border-radius: 5px;
-    transition: transform 1s;
+    overflow: auto;
 
+
+}
+
+.fileOpen {
+    position: relative;
+    overflow: hidden;
+
+}
+.fileOpen input.open {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
 #errores-lexicos{
@@ -331,7 +372,7 @@ button:hover {
     background-color: #282A36;
     border: 4px solid #F73471;
     border-radius: 5px;
-    transition: transform 1s;
+    overflow: auto;
 
 }
 
@@ -380,6 +421,35 @@ button:hover {
     margin-top: 3em;
     color: #282A36;
     font-weight: bold;
+  }
+
+
+
+  #pestania{
+      position: absolute;
+    width: 40%;
+    margin-top: 3%;
+    margin-left: 5%;
+    height: 600px;
+
+  }
+
+  #exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+
+  .pito{
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+
+  }
+
+  .nav-item:hover{
+      color: white;
+      border: none;
   }
 
 
