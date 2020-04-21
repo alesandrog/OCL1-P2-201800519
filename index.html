@@ -5,24 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ace.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-    <script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 
-    <script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ace.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css">
-    <script type = "text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
-    <script type = "text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type = "text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atelier-lakeside-dark.min.css">
+
+
     <script>hljs.initHighlightingOnLoad();</script>
-    
     <title>Document</title>
     <svg class="titulo" width="192" height="76" viewBox="0 0 192 76" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -36,13 +36,16 @@
                 <button type="button" class="btn " onclick="modal()">Nueva Pestana</button>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn ">Cargar Archivo</button>
+                <div class="fileOpen btn ">
+                    <span>Cargar Archivo</span>
+                    <input type="file" id="file-input" class="open" />
+                </div>
             </li>
             <li class="nav-item">
                 <button type="button" class="btn " onclick="analizador_lexico()">Analizar</button>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn ">Info</button>
+                <button type="button" class="btn " onclick="analizador_html()">Info</button>
             </li>
         </ul>
     </nav>
@@ -69,8 +72,8 @@
                     <span> Python</span>
                 </div>
 
-                <div id="editor-python">
-                    <p>hola</p>
+                <div id="editor-python" class="language-python">
+
                 </div>
             </div>
             <div class="carousel-item">
@@ -79,18 +82,26 @@
                     <img src="img/html.png" class="card-img-top" alt="..." height="60px" width="40px">
                     <span>HTML/CSS</span>
                 </div>
-                <div id="editor-html">
-                    <p>hola</p>
+                <div id="editor-html" class="language-html">
+                    <pre>
+                        <code id="res_html">
+
+                        </code>
+                    </pre>
                 </div>
             </div>
             <div class="carousel-item">
+
                 <div class="card" id="json" style="width: 4rem;">
                     <img src="img/json2.png" class="card-img-top" alt="..." height="60px" width="40px">
                     <span>JSON</span>
                 </div>
+                <div id="editor-json" class="language-html">
+                    <pre>
+                        <code id="res_jei">
 
-                <div id="editor-json">
-                    <p>hola</p>
+                        </code>
+                    </pre>
                 </div>
             </div>
         </div>
@@ -104,15 +115,53 @@
         </a>
     </div>
 
-    <div class="card" id="cs" style="width: 4rem;">
-        <img src="img/csh.png" class="card-img-top" alt="..." height="60px" width="40px">
-        <span>C Sharp</span>
+
+
+
+    <div id="pestania">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Tab 1</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Tab 2</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">Tab 3</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                data-simplebar>
+                <div class="card" id="cs" style="width: 4rem;">
+                    <img src="img/csh.png" class="card-img-top" alt="..." height="60px" width="40px">
+                    <span>C Sharp</span>
+                </div>
+                <div id="file-content" style="display: none;"></div>
+                <div id="editor" data-simplebar>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <p class="pito">COMPILADORES 1</p>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <p class="pito">Nelson Gonzalez</p>
+            </div>
+        </div>
     </div>
 
 
 
-    <div id="editor">
-    </div>
+
+
+
+
+
+
+
+
+
+
     <script type="text/javascript">
         var e = ace.edit("editor");
         e.getSession().setMode("ace/mode/csharp");
@@ -141,10 +190,10 @@
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Tipo</th>
-                                <th scope="col">Lexema</th>
+                                <th scope="col">Linea</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tbl_simbolos">
 
                         </tbody>
                     </table>
@@ -166,13 +215,14 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Token</th>
                                 <th scope="col">Tipo de Error</th>
                                 <th scope="col">Fila</th>
                                 <th scope="col">Columna</th>
                                 <th scope="col">Descripcion</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tbl_errores">
 
                         </tbody>
                     </table>
@@ -180,6 +230,8 @@
                 </div>
             </div>
         </div>
+
+
         <a class="carousel-control-prev" href="#slide-tablas" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -192,10 +244,11 @@
 
 
 
+
+
     <div class="footer">
         <img src="img/git.png" id="git-logo" alt="..." height="50px" width="50px">
         <p>-2020- @alesandrog</p>
-
     </div>
 
 
@@ -203,9 +256,13 @@
     <script src="js/Token.js"></script>
     <script src="js/Lexico.js"></script>
     <script src="js/Sintactico.js"></script>
+    <script src="js/LexicoHTML.js"></script>
+    <script src="js/SintacticoHTML.js"></script>
     <script src="js/Graficos.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
